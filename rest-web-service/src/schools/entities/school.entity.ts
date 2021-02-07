@@ -31,6 +31,14 @@ export class School extends MainEntity {
     )
     sections: Section[];
 
+    @ApiProperty({ 
+        description: 'Faculty associated to the school',
+        required: true,
+        type: () => Faculty,
+        example: {
+            id: 2,
+        }
+    })
     @Column({ name: 'fk_faculty', type: 'int', nullable: false })
     @JoinColumn({ name: 'fk_faculty' })
     @ManyToOne(

@@ -10,6 +10,7 @@ export class Faculty extends MainEntity {
     @IsArray()
     @ApiProperty({
         description: 'Collection of schools associated to the faculty',
+        type: [School],
         example: [{ 
             name: "Escuela de Ingeniería Informática",
             description: "La mejor escuela de la Facultad",
