@@ -13,11 +13,13 @@ export class PeopleController {
         description: 'Amount of people to retrieve',
         type: Number,
         name: 'limit',
+        required: false,
     })
     @ApiQuery({
         description: 'Start of the people to retrieve',
         type: Number,
         name: 'start',
+        required: false,
     })
     @ApiOkResponse({
         description: 'Collection of people',
