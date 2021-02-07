@@ -11,12 +11,12 @@ $ npm install nestjs -g
 
 Procede a clonar el proyecto, y verifica que estás ubicado en la rama master.
 
-### Archivos de Configuración
+## Archivos de Configuración
 
 Antes de proceder con la ejecución del servicio, agregue el archivo .env siguiendo el formato indicado en el archivo
 `env.test`.
 
-### Instalación de Dependencias
+## Instalación de Dependencias
 
 En la ruta principal del proyecto ejecute el siguiente comando para obtener todas las dependencias del proyecto:
 
