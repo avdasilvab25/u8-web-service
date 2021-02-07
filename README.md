@@ -39,6 +39,9 @@ $ npm run start
 
 Después de la ejecución de este comando, puede validar en la base de datos la creación de todas las entidades correspondientes al sistema.
 
+## Documentación del Servicio
+
+Para visualizar los servicios disponibles y los parámetros o payload necesario para el consumo de los endpoints debe abrir desde el navegador el siguiente url `http://localhost:3000/api/v1/docs`. Allí se podrá visualizar la información del servicio. En este caso, se coloca 3000 como el puerto para la ejecución del aplicativo, este número deberá ser modificado de acuerdo al valor asignado en el archivo de configuración `.env`.
 ## Integrantes
 
 [Andrea Da Silva](mailto:avdasilvab.17@est.ucab.edu.ve)
