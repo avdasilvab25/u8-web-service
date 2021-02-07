@@ -7,7 +7,6 @@ import { Section } from 'src/schools/entities/section.entity';
 
 @Entity({ name: 'enrollment' })
 export class Enrollment extends PrimalEntity {
-    
     @IsString()
     @MaxLength(20)
     @ApiProperty({

@@ -7,7 +7,6 @@ import { School } from './school.entity';
 
 @Entity({ name: 'section' })
 export class Section extends MainEntity {
-    
     @IsInt()
     @IsPositive({ always: true })
     @ApiProperty({

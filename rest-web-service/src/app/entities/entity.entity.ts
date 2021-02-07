@@ -4,7 +4,6 @@ import { IsString, MaxLength } from 'class-validator';
 import { PrimalEntity } from './base.entity';
 
 export class MainEntity extends PrimalEntity {
-
     @IsString()
     @MaxLength(255)
     @ApiProperty({
@@ -20,7 +19,8 @@ export class MainEntity extends PrimalEntity {
     @IsString()
     @MaxLength(35550)
     @ApiProperty({
-        example: 'Facultad de Ingeniería de la Universidad Católica Andrés Bello encargada del estudio de las ciencias en el mundo',
+        example:
+            'Facultad de Ingeniería de la Universidad Católica Andrés Bello encargada del estudio de las ciencias en el mundo',
         type: String,
         description: 'Object description',
         required: true,

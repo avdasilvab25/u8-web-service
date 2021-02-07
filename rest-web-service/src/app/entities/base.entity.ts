@@ -3,7 +3,6 @@ import { IsDate, IsInt, IsPositive, IsString, MaxLength } from 'class-validator'
 import { BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, Column } from 'typeorm';
 
 export class PrimalEntity extends BaseEntity {
-    
     @IsInt()
     @IsPositive({ always: true })
     @ApiProperty({

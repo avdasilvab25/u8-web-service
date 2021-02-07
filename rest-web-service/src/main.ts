@@ -16,12 +16,13 @@ async function bootstrap() {
 
     app.setGlobalPrefix(process.env.API_PREFIX);
 
-    const docsPath: string = `${process.env.API_PREFIX}/docs`
+    const docsPath: string = `${process.env.API_PREFIX}/docs`;
 
     const options = new DocumentBuilder()
         .setTitle('REST WEB SERVICE')
         .setDescription('APIRest v1.0')
         .setVersion('1.0')
+        .addTag('Enrollments')
         .addTag('Faculties')
         .addTag('Schools')
         .addTag('Sections')

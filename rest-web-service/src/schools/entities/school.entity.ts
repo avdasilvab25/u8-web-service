@@ -7,21 +7,22 @@ import { Section } from './section.entity';
 
 @Entity({ name: 'school' })
 export class School extends MainEntity {
-
     @IsArray()
     @ApiProperty({
         description: 'Collection of sections associated to the school',
         required: false,
-        example: [{ 
-            name: 'Algoritmos y Programación',
-            description: 'Asignatura encargada de la programación en Pascal.',
-            uc: 2, 
-            semester: 4, 
-            type: 'mandatory', 
-            ht: 2,
-            hp: 1,
-            hl: 2,
-        }],
+        example: [
+            {
+                name: 'Algoritmos y Programación',
+                description: 'Asignatura encargada de la programación en Pascal.',
+                uc: 2,
+                semester: 4,
+                type: 'mandatory',
+                ht: 2,
+                hp: 1,
+                hl: 2,
+            },
+        ],
     })
     @JoinColumn()
     @OneToMany(
@@ -31,13 +32,13 @@ export class School extends MainEntity {
     )
     sections: Section[];
 
-    @ApiProperty({ 
+    @ApiProperty({
         description: 'Faculty associated to the school',
         required: true,
         type: () => Faculty,
         example: {
             id: 2,
-        }
+        },
     })
     @Column({ name: 'fk_faculty', type: 'int', nullable: false })
     @JoinColumn({ name: 'fk_faculty' })

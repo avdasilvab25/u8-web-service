@@ -7,10 +7,9 @@ import { Status } from 'src/app/enums/status.enum';
 
 @Injectable()
 export class FacultiesService {
-
     constructor(
         @InjectRepository(Faculty)
-        private readonly facultiesRepository: Repository<Faculty>
+        private readonly facultiesRepository: Repository<Faculty>,
     ) {}
 
     /**
@@ -21,7 +20,7 @@ export class FacultiesService {
      */
     public async getFaculties({ limit = 10, start = 1 }): Promise<Array<Faculty>> {
         start = limit * (start - 1);
-        
+
         return await this.facultiesRepository.find({
             where: `status = '${Status.ENABLED}'`,
             skip: start,
@@ -54,6 +53,9 @@ export class FacultiesService {
      * @returns {Promise<UpdateResult>}
      */
     public async deleteFaculty(facultyId: number): Promise<UpdateResult> {
-        return await this.facultiesRepository.update(facultyId, { deletedDate: moment().format('YYYY-MM-DD hh:mm:ss'), status: Status.DISABLED });
+        return await this.facultiesRepository.update(facultyId, {
+            deletedDate: moment().format('YYYY-MM-DD hh:mm:ss'),
+            status: Status.DISABLED,
+        });
     }
 }

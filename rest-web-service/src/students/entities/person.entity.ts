@@ -6,7 +6,6 @@ import { IsString, MaxLength } from 'class-validator';
 
 @Entity({ name: 'person' })
 export class Person extends PrimalEntity {
-    
     @IsString()
     @MaxLength(20)
     @ApiProperty({

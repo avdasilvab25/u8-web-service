@@ -7,9 +7,7 @@ import { FacultiesService } from '../services/faculties.service';
 @ApiTags('Faculties')
 @Controller('faculties')
 export class FacultiesController {
-    constructor(
-        private readonly facultiesService: FacultiesService,
-    ) {}
+    constructor(private readonly facultiesService: FacultiesService) {}
 
     @ApiQuery({
         description: 'Amount of faculties to retrieve',

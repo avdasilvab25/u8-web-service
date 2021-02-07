@@ -7,9 +7,7 @@ import { SchoolsService } from '../services/schools.service';
 @ApiTags('Schools')
 @Controller('schools')
 export class SchoolsController {
-    constructor(
-        private readonly schoolsService: SchoolsService,
-    ) {}
+    constructor(private readonly schoolsService: SchoolsService) {}
 
     @ApiQuery({
         description: 'Amount of schools to retrieve',
