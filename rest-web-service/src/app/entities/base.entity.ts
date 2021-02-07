@@ -34,7 +34,7 @@ export class PrimalEntity extends BaseEntity {
     @IsString()
     @MaxLength(15)
     @ApiProperty({
-        example: 'mandatory',
+        example: 'enabled',
         type: String,
         enum: ['enabled, disabled'],
         description: 'Object status',

@@ -24,7 +24,7 @@ export class SectionsController {
         type: [Section],
     })
     @Get()
-    public async getSchools(
+    public async getSections(
         @Query('limit') limit: number = 10,
         @Query('start') start: number = 1,
     ): Promise<Array<Section>> {
@@ -43,7 +43,7 @@ export class SectionsController {
         type: Section,
     })
     @Post()
-    public async createSchool(@Body() section: Partial<Section>): Promise<Partial<Section>> {
+    public async createSection(@Body() section: Partial<Section>): Promise<Partial<Section>> {
         return await this.sectionsService.createSection(section);
     }
 
@@ -52,7 +52,7 @@ export class SectionsController {
         type: Section,
     })
     @Patch()
-    public async updateSchool(@Body() section: Partial<Section>): Promise<Partial<Section>> {
+    public async updateSection(@Body() section: Partial<Section>): Promise<Partial<Section>> {
         return await this.sectionsService.updateSection(section);
     }
 
@@ -65,7 +65,7 @@ export class SectionsController {
         description: 'Section deleted successfully',
     })
     @Delete(':id')
-    public async deleteSchool(@Param('id') id: number): Promise<UpdateResult> {
+    public async deleteSection(@Param('id') id: number): Promise<UpdateResult> {
         return await this.sectionsService.deleteSection(id);
     }
 }

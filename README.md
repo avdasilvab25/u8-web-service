@@ -14,11 +14,11 @@ Procede a clonar el proyecto, y verifica que estás ubicado en la rama master.
 ## Archivos de Configuración
 
 Antes de proceder con la ejecución del servicio, agregue el archivo .env siguiendo el formato indicado en el archivo
-`env.test`.
+`env.test` en la carpeta `rest-web-service`.
 
 ## Instalación de Dependencias
 
-En la ruta principal del proyecto ejecute el siguiente comando para obtener todas las dependencias del proyecto:
+En la carpeta `rest-web-service` ejecute el siguiente comando para obtener todas las dependencias del proyecto:
 
 ```bash
 $ npm install
