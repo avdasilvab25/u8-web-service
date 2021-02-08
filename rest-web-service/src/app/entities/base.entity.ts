@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsDate, IsInt, IsPositive, IsString, MaxLength } from 'class-validator';
 import { BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, Column } from 'typeorm';
+import * as moment from 'moment';
 
 export class PrimalEntity extends BaseEntity {
     @IsInt()
@@ -19,7 +20,15 @@ export class PrimalEntity extends BaseEntity {
         type: Date,
         description: 'Object creation date',
     })
-    @CreateDateColumn({ name: 'created_date', nullable: true })
+    @CreateDateColumn({
+        name: 'created_date',
+        nullable: true,
+        update: false,
+        transformer: {
+            from: (value: string) => value,
+            to: (value: string) => moment(value).toISOString(),
+        }
+    })
     createdAt: Date;
 
     @IsDate()
@@ -28,7 +37,15 @@ export class PrimalEntity extends BaseEntity {
         type: Date,
         description: 'Object deletion date',
     })
-    @Column({ name: 'deleted_date', nullable: true })
+    @Column({
+        name: 'deleted_date',
+        nullable: true,
+        insert: false,
+        transformer: {
+            from: (value: string) => value,
+            to: (value: string) => moment(value).toISOString(),
+        }
+    })
     deletedDate: Date;
 
     @IsString()

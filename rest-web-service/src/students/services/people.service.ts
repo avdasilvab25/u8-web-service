@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, UpdateResult } from 'typeorm';
+import { Repository, UpdateResult, SelectQueryBuilder } from 'typeorm';
 import * as moment from 'moment';
 import { Person } from '../entities/person.entity';
 import { Status } from 'src/app/enums/status.enum';
