@@ -21,6 +21,19 @@ export class PeopleController {
         name: 'start',
         required: false,
     })
+    @ApiQuery({
+        description: 'Section id to retrieve people from a section',
+        type: Number,
+        name: 'sectionId',
+        required: false,
+    })
+    @ApiQuery({
+        description: 'Type of people to retrieve of a section',
+        type: String,
+        name: 'enrollmentType',
+        required: false,
+        enum: ['student', 'teacher'],
+    })
     @ApiOkResponse({
         description: 'Collection of people',
         type: [Person],
@@ -29,10 +42,14 @@ export class PeopleController {
     public async getPeople(
         @Query('limit') limit: number = 10,
         @Query('start') start: number = 1,
-    ): Promise<Array<Person>> {
+        @Query('sectionId') sectionId: number,
+        @Query('enrollmentType') enrollmentType: string,
+    ): Promise<[Person[], number]> {
         return await this.peopleService.getPeople({
             limit,
             start,
+            sectionId,
+            enrollmentType,
         });
     }
 

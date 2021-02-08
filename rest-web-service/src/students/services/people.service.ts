@@ -18,14 +18,35 @@ export class PeopleService {
      * @param param0 limit and start parameters used for pagination.
      * @returns {Promise<Array<Person>>}
      */
-    public async getPeople({ limit = 10, start = 1 }): Promise<Array<Person>> {
+    public async getPeople({ limit = 10, start = 1, sectionId, enrollmentType }): Promise<[Person[], number]> {
         start = limit * (start - 1);
 
-        return await this.peopleRepository.find({
-            where: `status = '${Status.ENABLED}'`,
-            skip: start,
-            take: limit,
-        });
+        const query: SelectQueryBuilder<Person> = this.peopleRepository
+            .createQueryBuilder('person')
+            .andWhere(`person.status = '${Status.ENABLED}'`)
+            .skip(start)
+            .take(limit);
+
+        if (sectionId) {
+            query
+                .innerJoinAndSelect('person.enrollments', 'enrollments')
+                .andWhere(`enrollments.status = '${Status.ENABLED}'`)
+                .andWhere(`enrollments.section = ${sectionId}`);
+            
+            if (enrollmentType) {
+                query
+                    .andWhere(`enrollments.type = '${enrollmentType}'`);
+            }
+        }
+
+        if (!sectionId && enrollmentType) {
+            query
+                .innerJoinAndSelect('person.enrollments', 'enrollments')
+                .andWhere(`enrollments.status = '${Status.ENABLED}'`)
+                .andWhere(`enrollments.type = '${enrollmentType}'`);
+        }
+
+        return await query.getManyAndCount();
     }
 
     /**
