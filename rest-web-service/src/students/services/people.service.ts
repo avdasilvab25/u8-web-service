@@ -75,7 +75,7 @@ export class PeopleService {
      */
     public async deletePerson(personId: number): Promise<UpdateResult> {
         return await this.peopleRepository.update(personId, {
-            deletedDate: moment().format('YYYY-MM-DD hh:mm:ss'),
+            deletedDate: moment().toISOString(),
             status: Status.DISABLED,
         });
     }

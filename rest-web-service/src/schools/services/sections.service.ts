@@ -61,7 +61,7 @@ export class SectionsService {
      */
     public async deleteSection(sectionId: number): Promise<UpdateResult> {
         return await this.sectionsRepository.update(sectionId, {
-            deletedDate: moment().format('YYYY-MM-DD hh:mm:ss'),
+            deletedDate: moment().toISOString(),
             status: Status.DISABLED,
         });
     }

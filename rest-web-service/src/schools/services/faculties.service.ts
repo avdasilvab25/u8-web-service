@@ -54,7 +54,7 @@ export class FacultiesService {
      */
     public async deleteFaculty(facultyId: number): Promise<UpdateResult> {
         return await this.facultiesRepository.update(facultyId, {
-            deletedDate: moment().format('YYYY-MM-DD hh:mm:ss'),
+            deletedDate: moment().toISOString(),
             status: Status.DISABLED,
         });
     }

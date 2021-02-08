@@ -60,7 +60,7 @@ export class SchoolsService {
      */
     public async deleteSchool(schoolId: number): Promise<UpdateResult> {
         return await this.schoolsRepository.update(schoolId, {
-            deletedDate: moment().format('YYYY-MM-DD hh:mm:ss'),
+            deletedDate: moment().toISOString(),
             status: Status.DISABLED,
         });
     }
